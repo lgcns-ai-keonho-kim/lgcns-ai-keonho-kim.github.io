@@ -1,4 +1,4 @@
-# SD Team Edu
+# Solution Delivery Team / On-Boarding
 
 LG CNS Solution Delivery 팀이 프로젝트 수행 역량을 높이기 위해 설계한 **AI Engineer 교육 과정**입니다.  
 현업 과제에 바로 적용 가능한 실전형 커리큘럼을 목표로 하며, 세션별 문서와 코드 템플릿을 통해 단계적으로 학습할 수 있습니다.
