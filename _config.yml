@@ -1,0 +1,11 @@
+# _config.yml
+# 모든 마크다운 파일에서 Liquid 문법 해석을 방지합니다.
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      render_with_liquid: false
