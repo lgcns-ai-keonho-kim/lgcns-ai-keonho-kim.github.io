@@ -1,7 +1,3 @@
----
-layout: default
-render_with_liquid: false
----
 ## 교재 목록
 
 ### 01. Agent / Tool / MCP 개요

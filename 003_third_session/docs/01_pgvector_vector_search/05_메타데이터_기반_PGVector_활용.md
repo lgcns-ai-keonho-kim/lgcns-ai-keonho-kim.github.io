@@ -1,7 +1,3 @@
----
-layout: default
-render_with_liquid: false
----
 # 05. 메타데이터 기반 PGVector 활용
 
 ## 이 챕터에서 배우는 것

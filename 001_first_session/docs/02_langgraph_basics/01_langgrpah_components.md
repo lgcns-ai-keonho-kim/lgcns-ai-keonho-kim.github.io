@@ -1,7 +1,3 @@
----
-layout: default
-render_with_liquid: false
----
 # 01. LangGraph 구성 요소: State, Node, Graph
 
 ## 이 챕터에서 다루는 내용

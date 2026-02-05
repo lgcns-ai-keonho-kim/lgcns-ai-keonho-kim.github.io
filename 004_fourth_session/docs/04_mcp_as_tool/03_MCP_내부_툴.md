@@ -1,7 +1,3 @@
----
-layout: default
-render_with_liquid: false
----
 # 04. MCP 내부의 여러 Tool 관리
 
 ## 이 챕터에서 배우는 것

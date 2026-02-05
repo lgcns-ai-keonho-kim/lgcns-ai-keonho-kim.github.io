@@ -1,7 +1,3 @@
----
-layout: default
-render_with_liquid: false
----
 # 04. JSON 응답 안전 파싱
 
 ## 이 문서의 목표

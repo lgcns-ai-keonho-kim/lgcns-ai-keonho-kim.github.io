@@ -1,7 +1,3 @@
----
-layout: default
-render_with_liquid: false
----
 # 05. 재시도 로직 설계 (불량 응답 복구 전략)
 
 ## 이 문서의 목표

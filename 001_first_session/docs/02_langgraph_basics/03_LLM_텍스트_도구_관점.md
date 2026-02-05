@@ -1,7 +1,3 @@
----
-layout: default
-render_with_liquid: false
----
 # 03. LLM을 "텍스트 도구"로 보는 관점
 
 ## 이 챕터에서 다루는 내용

@@ -1,7 +1,3 @@
----
-layout: default
-render_with_liquid: false
----
 # 03. 적응형 HyDE 패턴
 
 ## 이 챕터에서 배우는 것

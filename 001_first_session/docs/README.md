@@ -1,7 +1,3 @@
----
-layout: default
-render_with_liquid: false
----
 # 교재 목록
 
 ## 01. 프롬프트 엔지니어링

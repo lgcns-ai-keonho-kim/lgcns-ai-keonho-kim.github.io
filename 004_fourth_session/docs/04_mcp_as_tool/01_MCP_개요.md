@@ -1,7 +1,3 @@
----
-layout: default
-render_with_liquid: false
----
 # 01. MCP 개요와 MCP를 Tool로 보기
 
 ## 이 챕터에서 배우는 것

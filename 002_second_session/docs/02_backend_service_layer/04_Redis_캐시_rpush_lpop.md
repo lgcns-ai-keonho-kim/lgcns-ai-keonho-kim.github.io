@@ -1,7 +1,3 @@
----
-layout: default
-render_with_liquid: false
----
 # 04. Redis 캐시 스트리밍(rpush/lpop)
 
 ## 이 챕터에서 배우는 것

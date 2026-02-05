@@ -1,7 +1,3 @@
----
-layout: default
-render_with_liquid: false
----
 # 두번째 세션
 
 이 프로젝트는 LangGraph/LangChain 초급자를 대상으로 한 **서비스 레이어 중심 실전형 교육 코스**입니다.  

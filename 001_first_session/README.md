@@ -1,7 +1,3 @@
----
-layout: default
-render_with_liquid: false
----
 # 첫번째 세션
 
 이 프로젝트는 LangChain/LangGraph 입문자를 대상으로 한 **실전형 교육 코스**입니다.
