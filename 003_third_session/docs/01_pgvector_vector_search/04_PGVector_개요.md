@@ -1,3 +1,7 @@
+---
+layout: default
+render_with_liquid: false
+---
 # 04. PGVector 개요
 
 ## 이 챕터에서 배우는 것

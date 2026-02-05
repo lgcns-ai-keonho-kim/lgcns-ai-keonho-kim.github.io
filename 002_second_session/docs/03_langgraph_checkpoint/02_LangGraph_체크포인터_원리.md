@@ -1,3 +1,7 @@
+---
+layout: default
+render_with_liquid: false
+---
 # 02. LangGraph 체크포인터 원리
 
 ## 이 챕터에서 배우는 것

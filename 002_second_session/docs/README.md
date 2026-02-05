@@ -1,3 +1,7 @@
+---
+layout: default
+render_with_liquid: false
+---
 # 교재 목록
 
 ## 1. LangGraph를 서비스로 구현하기: 내부로직

@@ -1,3 +1,7 @@
+---
+layout: default
+render_with_liquid: false
+---
 # 01. RAG 후처리 개념
 
 ## 이 챕터에서 배우는 것

@@ -1,3 +1,7 @@
+---
+layout: default
+render_with_liquid: false
+---
 # 03. 복수 선택(B, D) 응답 처리
 
 ## 이 문서의 목표

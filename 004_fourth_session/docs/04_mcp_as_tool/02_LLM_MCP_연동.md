@@ -1,3 +1,7 @@
+---
+layout: default
+render_with_liquid: false
+---
 # 02. LLM과 MCP 연동(실무 예시)
 
 ## 이 챕터에서 배우는 것

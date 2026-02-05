@@ -1,3 +1,7 @@
+---
+layout: default
+render_with_liquid: false
+---
 # 네번째 세션
 
 이 프로젝트는 **주택 데이터셋(housing.csv)**을 기반으로 **Agent/Tool/MCP/LangGraph** 구조를 학습하기 위한 프로젝트입니다.  

@@ -1,3 +1,7 @@
+---
+layout: default
+render_with_liquid: false
+---
 # 02. 단일 선택(A/B/C) 응답 처리
 
 ## 이 문서의 목표

@@ -1,3 +1,7 @@
+---
+layout: default
+render_with_liquid: false
+---
 # 01. YES/NO 응답 처리
 
 ## 이 문서의 목표
