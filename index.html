@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SD Team Edu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" type="image/png" href="site/assets/farvicon.png" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="site/libs/github.min.css" />
+  <link rel="stylesheet" href="site/css/styles.css" />
+</head>
+<body>
+  <div class="bg-layer"></div>
+  <div class="app" data-ready="false">
+    <header class="topbar">
+      <button class="brand" id="brandHome" type="button" aria-label="메인으로 이동">
+        <img class="brand-logo" src="site/assets/logo.png" alt="SD Team Edu 로고" />
+      </button>
+      <div class="nav-shell">
+        <nav class="nav-tabs" id="topNav"></nav>
+      </div>
+      <div class="topbar-actions"></div>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <div>
+            <div class="sidebar-title">탐색</div>
+            <div class="sidebar-sub">Docs / Code</div>
+          </div>
+        </div>
+        <div class="sidebar-section" data-view="docs">
+          <div class="section-header">
+            <span>Docs</span>
+          </div>
+          <div class="tree" id="docsTree"></div>
+        </div>
+        <div class="sidebar-section" data-view="code">
+          <div class="section-header">
+            <span>Code</span>
+          </div>
+          <div class="tree" id="codeTree"></div>
+        </div>
+      </aside>
+
+      <main class="content">
+        <div class="content-header">
+          <div class="breadcrumb" id="breadcrumb">로딩 중...</div>
+          <button class="sidebar-toggle" id="toggleSidebar" type="button">메뉴</button>
+        </div>
+        <article class="viewer" id="viewer"></article>
+      </main>
+    </div>
+  </div>
+
+  <script src="site/libs/marked.min.js"></script>
+  <script src="site/libs/highlight.min.js"></script>
+  <script src="site/libs/mermaid.min.js"></script>
+  <script type="module" src="site/js/app/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+{
+  "site": {
+    "title": "SD Team Edu",
+    "default_session": "MAIN"
+  },
+  "sessions": [
+    {
+      "id": "MAIN",
+      "label": "MAIN",
+      "readme": "README.md"
+    },
+    {
+      "id": "001",
+      "label": "SESSION 1",
+      "readme": "001_first_session/README.md",
+      "docs_root": "001_first_session/docs",
+      "code_root": "001_first_session/src"
+    },
+    {
+      "id": "002",
+      "label": "SESSION 2",
+      "readme": "002_second_session/README.md",
+      "docs_root": "002_second_session/docs",
+      "code_root": "002_second_session/src"
+    },
+    {
+      "id": "003",
+      "label": "SESSION 3",
+      "readme": "003_third_session/README.md",
+      "docs_root": "003_third_session/docs",
+      "code_root": "003_third_session/src"
+    },
+    {
+      "id": "004",
+      "label": "SESSION 4",
+      "readme": "004_fourth_session/README.md",
+      "docs_root": "004_fourth_session/docs",
+      "code_root": "004_fourth_session/src"
+    }
+  ]
+}

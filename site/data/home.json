@@ -1,0 +1,41 @@
+{
+  "hero": {
+    "kicker": "LG CNS · Solution Delivery",
+    "title": "프로젝트 수행을 위한",
+    "accent": "AI Engineer 교육",
+    "subtitle": "실제 업무 흐름에 맞춰 설계·구현·운영 역량을 강화하는 실전형 커리큘럼입니다. 문서와 코드 템플릿을 중심으로 세션별 핵심 패턴을 학습합니다.",
+    "pills": ["4 Sessions", "Docs + Code", "실전형 커리큘럼"]
+  },
+  "blueprint": {
+    "label": "Blue Print",
+    "ascii": [
+      "/---------\\   /---------\\   /---------\\",
+      "| DESIGN  |-->|  BUILD  |-->| OPERATE |",
+      "\\---------/   \\---------/   \\---------/"
+    ],
+    "stats": [
+      { "label": "Sessions", "value": "4" },
+      { "label": "Modules", "value": "Docs/Code" },
+      { "label": "Focus", "value": "Delivery" }
+    ]
+  },
+  "features": [
+    {
+      "title": "세션 구성",
+      "items": [
+        "Session 1: 프롬프트·그래프 설계",
+        "Session 2: 서비스 레이어·스트리밍",
+        "Session 3: RAG 파이프라인",
+        "Session 4: Agent/Tool/MCP"
+      ]
+    },
+    {
+      "title": "학습 방식",
+      "items": ["문서 기반 개념 정리", "템플릿 코드 구조 이해", "과제 구현으로 흐름 완성"]
+    },
+    {
+      "title": "시작 방법",
+      "items": ["상단 세션 탭에서 과정을 선택", "좌측 Docs/Code에서 탐색", "본문에서 학습 내용을 확인"]
+    }
+  ]
+}
