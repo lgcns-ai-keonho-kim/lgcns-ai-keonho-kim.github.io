@@ -884,6 +884,30 @@ body.main-mode .hero {
 }
 
 @media (max-width: 980px) {
+  .bg-layer::after {
+    display: none;
+  }
+
+  .topbar,
+  .sidebar,
+  .content {
+    backdrop-filter: none;
+  }
+
+  .topbar {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  }
+
+  .content,
+  .sidebar-section,
+  .hero,
+  .hero-panel,
+  .blueprint-panel,
+  .feature-card,
+  .visual-card {
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  }
+
   .layout {
     grid-template-columns: 1fr;
     padding: 20px;
@@ -937,6 +961,16 @@ body.main-mode .hero {
 
   .blueprint-track.ascii {
     font-size: clamp(11px, 3.2vw, 14px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
   }
 }
 

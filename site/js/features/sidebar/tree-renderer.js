@@ -1,10 +1,11 @@
 /*
 목적: 문서/코드 트리를 생성하고 DOM에 렌더링한다.
-설명: 경로 목록을 트리로 변환하고 버튼/디테일을 구성한다.
+설명: 경로 목록을 트리로 변환하고, 활성 경로만 최소 DOM 변경으로 동기화한다.
 디자인 패턴: 재귀적 트리 렌더링.
 참조: site/index.html, site/js/shared/label-format.js
 */
 import { formatDocsLabel } from "../../shared/label-format.js";
+
 function createNode(name, type, path) {
   return { name, type, path, children: [] };
 }
@@ -67,6 +68,13 @@ function formatDisplayName(name, type, options = {}) {
   return formatDocsLabel(name, type);
 }
 
+function isAncestorPath(dirPath, targetPath) {
+  if (!dirPath || !targetPath) {
+    return false;
+  }
+  return targetPath === dirPath || targetPath.startsWith(`${dirPath}/`);
+}
+
 function createFileButton(node, currentPath, options) {
   const item = document.createElement("div");
   item.className = "tree-item";
@@ -88,7 +96,8 @@ function renderNode(node, currentPath, options) {
   }
 
   const details = document.createElement("details");
-  details.open = true;
+  details.dataset.path = node.path;
+  details.open = isAncestorPath(node.path, currentPath);
 
   const summary = document.createElement("summary");
   summary.textContent = formatDisplayName(node.name, node.type, options);
@@ -118,4 +127,20 @@ export function renderTree(container, tree, currentPath, options = {}) {
     list.appendChild(renderNode(child, currentPath, options));
   });
   container.appendChild(list);
+}
+
+export function syncTreeSelection(container, currentPath) {
+  if (!container) {
+    return;
+  }
+
+  const buttons = container.querySelectorAll("button[data-path]");
+  buttons.forEach((button) => {
+    button.classList.toggle("is-active", button.dataset.path === currentPath);
+  });
+
+  const folders = container.querySelectorAll("details[data-path]");
+  folders.forEach((folder) => {
+    folder.open = isAncestorPath(folder.dataset.path, currentPath);
+  });
 }

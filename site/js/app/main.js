@@ -10,7 +10,7 @@ import { Router } from "../core/router.js";
 import { DataService } from "../services/data-service.js";
 import { TopNav } from "../features/navigation/top-nav.js";
 import { SidebarSection } from "../features/sidebar/section.js";
-import { buildTree, renderTree } from "../features/sidebar/tree-renderer.js";
+import { buildTree, renderTree, syncTreeSelection } from "../features/sidebar/tree-renderer.js";
 import { renderContent, renderHome } from "../features/viewer/viewer.js";
 
 const ui = Dom.getUI();
@@ -42,13 +42,31 @@ function updateSections() {
   SidebarSection.toggleVisibility(hasDocs || hasCode);
 }
 
-function updateTrees() {
-  const session = getSessionById(AppState.data.currentSessionId);
+function ensureSessionTrees(session) {
   if (!session) {
+    return;
+  }
+  if (session.docs_root && !AppState.data.docsTrees[session.id]) {
+    AppState.data.docsTrees[session.id] = buildTree(
+      AppState.data.docsPaths,
+      session.docs_root
+    );
+  }
+  if (session.code_root && !AppState.data.codeTrees[session.id]) {
+    AppState.data.codeTrees[session.id] = buildTree(
+      AppState.data.codePaths,
+      session.code_root
+    );
+  }
+}
+
+function renderSessionTrees(session) {
+  if (!session || session.id === "MAIN") {
     renderTree(ui.docsTree, null, "", { labelStyle: "docs" });
     renderTree(ui.codeTree, null, "");
     return;
   }
+
   renderTree(
     ui.docsTree,
     AppState.data.docsTrees[session.id],
@@ -56,6 +74,11 @@ function updateTrees() {
     { labelStyle: "docs" }
   );
   renderTree(ui.codeTree, AppState.data.codeTrees[session.id], AppState.data.currentPath);
+}
+
+function syncActiveTrees() {
+  syncTreeSelection(ui.docsTree, AppState.data.currentPath);
+  syncTreeSelection(ui.codeTree, AppState.data.currentPath);
 }
 
 function syncHash() {
@@ -68,8 +91,9 @@ function syncHash() {
 
 async function selectPath(path, { updateUrl = true } = {}) {
   AppState.data.currentPath = path;
+  syncActiveTrees();
   await renderContent(ui.viewer, ui.breadcrumb, path);
-  updateTrees();
+  syncActiveTrees();
   if (updateUrl) {
     syncHash();
   }
@@ -82,13 +106,15 @@ async function selectSession(sessionId, options = {}) {
   }
   AppState.data.currentSessionId = sessionId;
   AppState.data.currentView = session.docs_root ? "docs" : "code";
+  AppState.data.currentPath = options.initialPath || "";
   document.body.classList.toggle("main-mode", sessionId === "MAIN");
+  ensureSessionTrees(session);
   updateTopNav();
   updateSections();
-  updateTrees();
+  renderSessionTrees(session);
+  syncActiveTrees();
 
   if (sessionId === "MAIN") {
-    AppState.data.currentPath = "";
     await renderHome(ui.viewer, ui.breadcrumb);
     syncHash();
     return;
@@ -102,7 +128,10 @@ async function selectSession(sessionId, options = {}) {
 
 async function applyRouteState() {
   const route = Router.read(AppState.data.manifest.site.default_session);
-  await selectSession(route.sessionId, { skipReadme: Boolean(route.path) });
+  await selectSession(route.sessionId, {
+    skipReadme: Boolean(route.path),
+    initialPath: route.path || "",
+  });
   if (
     route.view &&
     (route.view === "docs" || route.view === "code") &&
@@ -110,7 +139,6 @@ async function applyRouteState() {
   ) {
     AppState.data.currentView = route.view;
     updateSections();
-    updateTrees();
   }
   if (route.path && route.sessionId !== "MAIN") {
     await selectPath(route.path, { updateUrl: false });
@@ -158,17 +186,8 @@ function bindEvents() {
 
 async function init() {
   AppState.data.manifest = await DataService.loadManifest();
-  const docsPaths = await DataService.loadPaths("docs_paths.txt");
-  const codePaths = await DataService.loadPaths("code_paths.txt");
-
-  AppState.data.manifest.sessions.forEach((session) => {
-    if (session.docs_root) {
-      AppState.data.docsTrees[session.id] = buildTree(docsPaths, session.docs_root);
-    }
-    if (session.code_root) {
-      AppState.data.codeTrees[session.id] = buildTree(codePaths, session.code_root);
-    }
-  });
+  AppState.data.docsPaths = await DataService.loadPaths("docs_paths.txt");
+  AppState.data.codePaths = await DataService.loadPaths("code_paths.txt");
 
   bindEvents();
   await applyRouteState();

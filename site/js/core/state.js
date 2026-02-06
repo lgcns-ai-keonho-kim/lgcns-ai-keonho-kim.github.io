@@ -7,6 +7,8 @@
 export const AppState = {
   data: {
     manifest: null,
+    docsPaths: [],
+    codePaths: [],
     docsTrees: {},
     codeTrees: {},
     currentSessionId: null,
